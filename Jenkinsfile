@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'librenms' } }
+    agent { node { label 'williamyeh/ansible:alpine3' } }
 
     stages {
         stage("Prepare") {
