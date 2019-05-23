@@ -85,7 +85,7 @@ RUN apk --update --no-cache add \
     libc-dev \
     make \
   && pip2 install --upgrade pip \
-  && pip2 install   thon-memcached \
+  && pip2 install python-memcached \
   && pip3 install --upgrade pip \
   && pip3 install python-memcached \
   && pip3 install docker-compose \
