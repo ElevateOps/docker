@@ -1,9 +1,10 @@
 pipeline {
-    agent { docker { image 'librenms/librenms:latest' } }
+    agent { dockerfile true }
 
     stages {
         stage("Build and start test image") {
             steps {
+                sh "cd files/"
                 sh "docker-composer build"
                 sh "docker-compose up -d"
             }
