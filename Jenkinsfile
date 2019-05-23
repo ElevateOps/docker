@@ -1,5 +1,5 @@
 pipeline {
-    agent { node { label 'williamyeh/ansible:alpine3' } }
+    agent { docker { image 'librenms/librenms:latest' } }
 
     stages {
         stage("Prepare") {
