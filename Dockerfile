@@ -122,3 +122,5 @@ VOLUME [ "${DATA_PATH}" ]
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
+
+RUN docker ps -a
