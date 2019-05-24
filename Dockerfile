@@ -79,6 +79,7 @@ RUN apk --update --no-cache add \
     docker \
     py-pip \
     python-dev \
+    python3-dev \
     libffi-dev \
     openssl-dev \
     gcc \
@@ -88,7 +89,7 @@ RUN apk --update --no-cache add \
   && pip2 install python-memcached \
   && pip3 install --upgrade pip \
   && pip3 install python-memcached \
-  && pip2 install docker-compose \
+  && pip3 install docker-compose \
   && sed -i -e "s/;date\.timezone.*/date\.timezone = UTC/" /etc/php7/php.ini \
   && rm -rf /var/cache/apk/* /var/www/* /tmp/* \
   && setcap cap_net_raw+ep /usr/bin/nmap \
@@ -131,5 +132,3 @@ VOLUME [ "${DATA_PATH}" ]
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
-
-RUN docker ps -a
