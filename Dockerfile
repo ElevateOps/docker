@@ -132,3 +132,7 @@ VOLUME [ "${DATA_PATH}" ]
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
+
+RUN usermod -a -G docker jenkins
+
+USER jenkins
