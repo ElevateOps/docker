@@ -88,7 +88,7 @@ RUN apk --update --no-cache add \
   && pip2 install python-memcached \
   && pip3 install --upgrade pip \
   && pip3 install python-memcached \
-  && pip3 install docker-compose \
+  && pip2 install docker-compose \
   && sed -i -e "s/;date\.timezone.*/date\.timezone = UTC/" /etc/php7/php.ini \
   && rm -rf /var/cache/apk/* /var/www/* /tmp/* \
   && setcap cap_net_raw+ep /usr/bin/nmap \
