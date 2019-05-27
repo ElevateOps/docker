@@ -1,6 +1,4 @@
 pipeline {
-    agent { dockerfile true }
-
     stages {
         stage("Build and start test image") {
             steps {
