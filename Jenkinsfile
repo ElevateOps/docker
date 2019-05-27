@@ -1,4 +1,5 @@
 pipeline {
+    agent none
     stages {
         stage("Build and start test image") {
             steps {
