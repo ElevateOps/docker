@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:7-alpine' }
+        docker { image 'docker:stable' }
     }
     stages {
         stage("Build and start test image") {
