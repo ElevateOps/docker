@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        sshagent { label: devel_at_insport }
-    }
+    agent { label 'devel_at_insport' }
 
     stages {
 
