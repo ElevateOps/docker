@@ -12,7 +12,7 @@ pipeline {
         stage("Copy docker compose files") {
             steps {
                 dir ("files") {
-                    sh "sudo mkdir /var/librenms"
+                    sh "sudo mkdir -p /var/librenms"
                     sh "sudo copy -r * /var/librenms"
                 }
             }
@@ -20,17 +20,7 @@ pipeline {
 
         stage("Spin-up the container") {
             steps {
-                dir ("/var/librenms") {
-                    sh "sudo docker-compose up -d"
-                }
-            }
-        }
-
-        stage("Tear down image - devel") {
-            steps {
-                dir ("/var/librenms") {
-                    sh "sudo docker-compose down"
-                }
+                sh "cd /var/librenms && sudo docker-compose up -d"
             }
         }
     }
