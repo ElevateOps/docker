@@ -3,15 +3,16 @@ pipeline {
 
     stages {
 
-        stage("Build and start test image") {
+        stage("Build and start image") {
             steps {
                 sh "cd files/"
                 sh "docker-compose up -d"
             }
         }
 
-        stage("Run tests") {
+        stage("Tear down image - devel") {
             steps {
+                sh "docker-compose down"
             }
         }
     }
