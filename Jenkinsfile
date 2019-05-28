@@ -6,15 +6,14 @@ pipeline {
         stage("Build and start image") {
             steps {
                 dir ("files") {
-                    sh "ls -la"
-                    sh "docker-compose up -d"
+                    sh "sudo docker-compose up -d"
                 }
             }
         }
 
         stage("Tear down image - devel") {
             steps {
-                sh "docker-compose down"
+                sh "sudo docker-compose down"
             }
         }
     }
