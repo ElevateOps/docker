@@ -3,9 +3,26 @@ pipeline {
 
     stages {
 
-        stage("Build and start image") {
+        stage("Tear down any previous containers") {
+            steps {
+                dir("/var/librenms") {
+                    sh "sudo docker-compose down"
+                }
+            }
+        }
+
+        stage("Copy docker compose files") {
             steps {
                 dir ("files") {
+                    sh "sudo mkdir /var/librenms"
+                    sh "sudo copy -r * /var/librenms"
+                }
+            }
+        }
+
+        stage("Spin-up the container") {
+            steps {
+                dir ("/var/librenms") {
                     sh "sudo docker-compose up -d"
                 }
             }
@@ -13,7 +30,9 @@ pipeline {
 
         stage("Tear down image - devel") {
             steps {
-                sh "sudo docker-compose down"
+                dir ("/var/librenms") {
+                    sh "sudo docker-compose down"
+                }
             }
         }
     }
