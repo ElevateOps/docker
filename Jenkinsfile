@@ -6,7 +6,6 @@ pipeline {
         stage("Tear down any previous containers") {
             steps {
                 sh "cd /var/librenms && sudo docker-compose down"
-                }
             }
         }
 
