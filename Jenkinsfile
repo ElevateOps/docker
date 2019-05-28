@@ -1,19 +1,25 @@
 pipeline {
     agent {
-        docker { image 'docker:stable' }
+        sshagent { credentials: ['elevate'] }
     }
+
     stages {
+
+        stage("Establish connection") {
+            steps {
+                sh 'ssh -p 14339 elevate@193.106.100.89'
+            }
+        }
+
         stage("Build and start test image") {
             steps {
                 sh "cd files/"
-                sh "docker-compose build"
                 sh "docker-compose up -d"
             }
         }
+
         stage("Run tests") {
             steps {
-                sh "docker-compose exec -T php-fpm composer --no-ansi --no-interaction tests-ci"
-                sh "docker-compose exec -T php-fpm composer --no-ansi --no-interaction behat-ci"
             }
         }
     }
