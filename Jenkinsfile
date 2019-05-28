@@ -13,7 +13,7 @@ pipeline {
             steps {
                 dir ("files") {
                     sh "sudo mkdir -p /var/librenms"
-                    sh "sudo copy -r * /var/librenms"
+                    sh "sudo cp -r * /var/librenms"
                 }
             }
         }
