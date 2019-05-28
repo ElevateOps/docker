@@ -1,15 +1,9 @@
 pipeline {
     agent {
-        sshagent { credentials: ['elevate'] }
+        sshagent { label: devel_at_insport }
     }
 
     stages {
-
-        stage("Establish connection") {
-            steps {
-                sh 'ssh -p 14339 elevate@193.106.100.89'
-            }
-        }
 
         stage("Build and start test image") {
             steps {
