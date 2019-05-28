@@ -4,9 +4,12 @@ pipeline {
     stages {
 
         stage("Tear down any previous containers") {
-            steps {
+            try {
                 sh "sudo mkdir -p /var/librenms"
                 sh "cd /var/librenms && sudo docker-compose down"
+            }
+            catch (Exception e) {
+                echo "Probably no docker container running. Check the logs…"
             }
         }
 
