@@ -4,9 +4,11 @@ pipeline {
     stages {
 
         stage("Build and start image") {
-            dir("files") {
-                sh "ls -la"
-                sh "docker-compose up -d"
+            steps {
+                dir ("files") {
+                    sh "ls -la"
+                    sh "docker-compose up -d"
+                }
             }
         }
 
