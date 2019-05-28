@@ -5,6 +5,7 @@ pipeline {
 
         stage("Tear down any previous containers") {
             steps {
+                sh "whoami"
                 dir("/var/librenms") {
                     sh "sudo docker-compose down"
                 }
