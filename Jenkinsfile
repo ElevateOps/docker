@@ -39,6 +39,7 @@ pipeline {
                     sh "sudo cp prometheus-conf.txt /var/librenms"
                     sh """
                     cd /var/librenms && \
+                    sudo docker cp prometheus-conf.txt librenms:/prometheus-conf.txt && \
                     sudo docker exec -i librenms sh -c 'cat prometheus-conf.txt >> config.php'
                     """
                 }
