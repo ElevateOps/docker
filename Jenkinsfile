@@ -35,15 +35,15 @@ pipeline {
 
         stage("Configure Prometheus integration") {
             steps {
-            sh """
-            cd /var/librenms && \
-            sudo docker exec -i librenms sh -c \
-            """
-            echo "\$config['\''prometheus'\'']['\''enable'\''] = true;" >> config.php &&
-            echo "\$config['\''prometheus'\'']['\''url'\''] = '\''http://127.0.0.1:9091'\'';" >> config.php &&
-            echo "\$config['\''prometheus'\'']['\''job'\''] = '\''librenms'\'';" >> config.php
-            """
-            """
+                sh """
+                cd /var/librenms && \
+                sudo docker exec -i librenms sh -c \
+                """
+                echo '\$config['\''prometheus'\'']['\''enable'\''] = true;' >> config.php &&
+                echo '\$config['\''prometheus'\'']['\''url'\''] = '\''http://127.0.0.1:9091'\'';' >> config.php &&
+                echo '\$config['\''prometheus'\'']['\''job'\''] = '\''librenms'\'';' >> config.php
+                """
+                """
             }
         }
     }
