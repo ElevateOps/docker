@@ -37,8 +37,8 @@ pipeline {
             steps {
                 sh """
                 cd /var/librenms && \
-                sudo docker exec -i librenms sh -c 'echo "\$config['prometheus']['enable'] = true; \
-                \$config['prometheus']['url'] = 'http://127.0.0.1:9091'; \
+                sudo docker exec -i librenms sh -c 'echo "\$config[\'prometheus\'][\'enable\'] = true; \n
+                \$config['prometheus']['url'] = 'http://127.0.0.1:9091'; \n
                 \$config['prometheus']['job'] = 'librenms';" >> config.php'
                 """
             }
