@@ -76,20 +76,10 @@ RUN apk --update --no-cache add \
     tzdata  \
     util-linux \
     whois \
-    docker \
-    py-pip \
-    python-dev \
-    python3-dev \
-    libffi-dev \
-    openssl-dev \
-    gcc \
-    libc-dev \
-    make \
   && pip2 install --upgrade pip \
   && pip2 install python-memcached \
   && pip3 install --upgrade pip \
   && pip3 install python-memcached \
-  && pip3 install docker-compose \
   && sed -i -e "s/;date\.timezone.*/date\.timezone = UTC/" /etc/php7/php.ini \
   && rm -rf /var/cache/apk/* /var/www/* /tmp/* \
   && setcap cap_net_raw+ep /usr/bin/nmap \
@@ -132,7 +122,3 @@ VOLUME [ "${DATA_PATH}" ]
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/usr/bin/supervisord", "-c", "/etc/supervisord.conf" ]
-
-RUN usermod -a -G docker jenkins
-
-USER jenkins
