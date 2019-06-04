@@ -1,3 +1,16 @@
+### List of RFC1918 networks to allow scanning-based discovery
+#$config[‘nets’][] = “10.0.0.0/8”;
+#$config[‘nets’][] = “172.16.0.0/12";
+#$config[‘nets’][] = “192.168.0.0/16”;
+
+#MGMT
+$config[‘nets’][] = “10.99.0.0/16";
+$config[‘nets’][] = “193.106.100.0/24”;
+
+### Default community
+$config[‘snmp’][‘community’] = array(‘i3HGzfBz7EpTV8w’);
+
+### Prometheus integration ###
 $config['prometheus']['enable'] = true;
 $config['prometheus']['url'] = 'http://172.17.0.1:9091';
 $config['prometheus']['job'] = 'librenms';
