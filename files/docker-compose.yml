@@ -11,10 +11,10 @@ services:
       - "--entryPoints=Name:https Address::443 TLS"
       - "--docker"
       - "--docker.exposedbydefault=true"
-      - "--docker.domain=elevate.pl"
+      - "--docker.domain=elevateops.pl"
       - "--acme=true"
       - "--acme.acmelogging=true"
-      - "--acme.email=webmaster@elevate.pl"
+      - "--acme.email=webmaster@elevateops.pl"
       - "--acme.storage=acme.json"
       - "--acme.entryPoint=https"
       - "--acme.onhostrule=true"
@@ -91,7 +91,7 @@ services:
   librenms:
     image: librenms/librenms:latest
     container_name: librenms
-    domainname: elevate.pl
+    domainname: elevateops.pl
     hostname: librenms
     depends_on:
       - db
@@ -104,7 +104,7 @@ services:
       - "traefik.enable=true"
       - "traefik.backend=librenms"
       - "traefik.port=80"
-      - "traefik.frontend.rule=Host:librenms.elevate.pl"
+      - "traefik.frontend.rule=Host:librenms.elevateops.pl"
     environment:
       - "TZ=${TZ}"
       - "PUID=${PUID}"
@@ -121,7 +121,7 @@ services:
   cron:
     image: librenms/librenms:latest
     container_name: librenms_cron
-    domainname: elevate.pl
+    domainname: elevateops.pl
     hostname: librenms
     depends_on:
       - librenms
@@ -144,7 +144,7 @@ services:
   syslog-ng:
     image: librenms/librenms:latest
     container_name: librenms_syslog
-    domainname: elevate.pl
+    domainname: elevateops.pl
     hostname: librenms
     depends_on:
       - librenms
