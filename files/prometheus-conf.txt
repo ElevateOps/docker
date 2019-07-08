@@ -1,3 +1,5 @@
+<?php
+
 ### List of RFC1918 networks to allow scanning-based discovery
 #$config['nets'][] = "10.0.0.0/8";
 #$config['nets'][] = "172.16.0.0/12";
@@ -14,3 +16,14 @@ $config['snmp']['community'] = array('i3HGzfBz7EpTV8w');
 $config['prometheus']['enable'] = true;
 $config['prometheus']['url'] = 'http://172.17.0.1:9091';
 $config['prometheus']['job'] = 'librenms';
+
+### Influxdb integration ###
+$config['influxdb']['enable'] = true;
+$config['influxdb']['transport'] = 'http'; # Default, other options: https, udp
+$config['influxdb']['host'] = '172.17.0.1';
+$config['influxdb']['port'] = '8086';
+$config['influxdb']['db'] = 'librenms';
+$config['influxdb']['username'] = 'admin';
+$config['influxdb']['password'] = 'WigrySuwalki';
+$config['influxdb']['timeout'] = 0; # Optional
+$config['influxdb']['verifySSL'] = false; # Optional
