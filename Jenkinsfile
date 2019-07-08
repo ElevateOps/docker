@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'devel_at_insport' }
+    agent { label 'test_VM_proxmox' }
 
     stages {
 
