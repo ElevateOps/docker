@@ -34,7 +34,7 @@ pipeline {
                 script {
                     try {
                         sh "sudo mkdir -p /var/librenms"
-                        sh "cd /var/librenms && sudo docker-compose stop && sudo docker-compose rm"
+                        sh "cd /var/librenms && sudo docker-compose stop && sudo docker-compose rm -f"
                     }
                     catch (Exception e) {
                         echo "Probably no docker container running. Check the logs…"
