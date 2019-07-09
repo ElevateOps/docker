@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'test_VM_proxmox' }
+    agent { label 'EO-PROD' }
 
     stages {
 
