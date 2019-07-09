@@ -20,6 +20,7 @@ pipeline {
         stage("Copy docker compose files") {
             steps {
                 dir ("files") {
+                    sh "ls -la"
                     sh "sudo cp -a . /var/librenms"
                 }
             }
