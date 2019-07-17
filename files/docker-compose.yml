@@ -104,7 +104,7 @@ services:
       - "traefik.enable=true"
       - "traefik.backend=librenms"
       - "traefik.port=80"
-      - "traefik.frontend.rule=Host:librenms.elevateops.pl"
+      - "traefik.frontend.rule=Host:libre1.elevateops.pl"
     environment:
       - "TZ=${TZ}"
       - "PUID=${PUID}"
