@@ -57,6 +57,7 @@ pipeline {
                 sh "cd /var/librenms && ls -la"
                 sh "cd /var/librenms && sudo touch acme.json"
                 sh "cd /var/librenms && sudo chmod 600 acme.json"
+                sh "mkdir -p /data/victoria"
                 sh "cd /var/librenms && sudo docker-compose up -d"
             }
         }

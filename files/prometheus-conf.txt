@@ -13,7 +13,7 @@ $config['nets'][] = "193.106.100.0/24";
 $config['snmp']['community'] = array('i3HGzfBz7EpTV8w');
 
 ### Prometheus integration ###
-$config['prometheus']['enable'] = true;
+$config['prometheus']['enable'] = false;
 $config['prometheus']['url'] = 'http://172.17.0.1:9091';
 $config['prometheus']['job'] = 'librenms';
 
@@ -21,7 +21,7 @@ $config['prometheus']['job'] = 'librenms';
 $config['influxdb']['enable'] = true;
 $config['influxdb']['transport'] = 'http'; # Default, other options: https, udp
 $config['influxdb']['host'] = '172.17.0.1';
-$config['influxdb']['port'] = '8086';
+$config['influxdb']['port'] = '8428';
 $config['influxdb']['db'] = 'librenms';
 $config['influxdb']['username'] = 'admin';
 $config['influxdb']['password'] = 'WigrySuwalki';
