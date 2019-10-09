@@ -3,7 +3,7 @@ version: "3.5"
 services:
   traefik:
     image: traefik:1.7-alpine
-    container_name: traefik
+    container_name: librenms_traefik
     command:
       - "--logLevel=INFO"
       - "--defaultentrypoints=http"
@@ -159,7 +159,7 @@ services:
     restart: always
 
   victoriametrics:
-    container_name: victoriametrics
+    container_name: librenms_victoriametrics
     image: victoriametrics/victoria-metrics
     ports:
       - 8428:8428
